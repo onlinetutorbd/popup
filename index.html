@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            height: 10vh;
+            background: #648ebdfe;
+        }
+        .popup{
+           position: fixed;
+           top: 50%; 
+           left: 50%;
+           transform: translate(-50%, -50%);
+           display: none;
+        }
+        .popup_content{
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background: #fff;
+            border-radius: 20px;
+            display: flex;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 22%);
+        }
+        .img_box{
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+
+        }
+        .img_box::before{
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .img_box img{
+            position: relative;
+            width: 250px;
+            z-index: 1;
+        }
+        .content{
+            position: relative;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+        .content h3{
+            color: #333;
+            line-height: 1em;
+            font-weight: 400;
+            font-size: 2em;
+        }
+        .content h2{
+            font-size: 4em;
+            color: #ff4d54;
+            line-height: 1.1em;
+        }
+        .content h2 sup{
+            text-transform: uppercase;
+        }
+        .content p{
+            font-weight: 300;
+            padding-right: 10px;
+        }
+        .content a{
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff4d54;
+            color: #fff;
+            margin: 15px;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: .4s;
+        }
+        .contenta:hover{
+            background: #c52946;
+            color: #f9f4ea;
+        }
+        .close_btn{
+           position: absolute;
+            top: 20px;
+           right: 20px;
+           width: 40px;
+           height: 40px;
+           background: #fff url(close.png);
+           background-repeat: no-repeat;
+           background-size: 10px;
+           background-position: center;
+           border-radius: 50%;
+           z-index: 10;
+           cursor: pointer;
+
+        }
+        /*responsive*/
+        @media (max-width:767px){
+            .popup_content{
+           flex-direction: column;
+           width: 300px;
+           height: auto;
+        }
+        .img_box{
+            height: 180px;
+            transform: translateY(-50px);
+
+        }
+        .img_box::before{
+            background: #fff;
+        }
+        .content{
+           height: auto;
+           text-align: center;
+           padding: 20px;
+           padding-top: 0; 
+        }
+        .close_btn{
+            top: -50px;
+            right: -10px;
+            background: #fff url(close.png);
+            background-repeat: no-repeat;
+            background-size: 10px;
+            background-position: center;
+        }
+        }
+    </style>
+</head>
+<body>
+    <main class="popup">
+        <section class="popup_content">
+            <div class="close_btn">
+
+            </div>
+            <div class="img_box">
+                <img src="gift.png" alt="gift">
+            </div>
+            <div class="content">
+                <div>
+                    <h3>Special Offer</h3>
+                    <h2>85 <sup>%</sup>off</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore iure illum ipsam.</p>
+                    <a href="#">Get the deal</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const popup = document.querySelector('.popup')
+        const close = document.querySelector('.close_btn')
+        window.onload = function (){
+            setTimeout(function(){
+                popup.style.display = 'block';
+            },800)
+        }
+        close.addEventListener('click', ()=>{
+            popup.style.display = 'none';
+        })
+    </script>
+</body>
+</html>
